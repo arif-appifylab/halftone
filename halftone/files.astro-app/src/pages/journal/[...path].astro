@@ -1,0 +1,14 @@
+---
+import HalftoneShell from '../../apps/halftone/HalftoneShell.astro';
+import {halftonePage} from '../../apps/halftone/page';
+
+/** A Halftone page (src/apps/halftone/). Rendered per request: the journal and admin are live. */
+export const prerender = false;
+
+const page = halftonePage(`journal/${Astro.params.path ?? ''}`);
+Astro.response.status = page.status;
+// Public and the same for everyone (the visitor is never read here): a short shared cache is fine.
+if (page.status === 200 && !page.noindex) Astro.response.headers.set('Cache-Control', 'public, max-age=300');
+---
+
+<HalftoneShell page={page} />

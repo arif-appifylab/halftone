@@ -1,0 +1,32 @@
+---
+/**
+ * The site's mark: logo when it has one, monogram fallback otherwise.
+ * `initial-data` carries no description and no brand colour, so name + logo is
+ * the whole brand.
+ */
+import type {Site} from '../lib/types';
+
+interface Props {
+  site: Site | null;
+  /**
+   * One of the sizes `global.css` defines (`.brand-size-<n>`). No `style=""`:
+   * the CSP blocks inline style attributes (security.md).
+   */
+  size?: 32 | 56 | 64 | 72;
+}
+
+const {site, size = 32} = Astro.props;
+const name = site?.name ?? 'Halftone';
+// Halftone's mark: a 3×3 dot screen whose dots shrink toward the bottom-right.
+const DOTS = [0, 1, 2].flatMap(row => [0, 1, 2].map(col => ({x: 6 + col * 10, y: 6 + row * 10, r: Math.max(0.6, 4 - (row + col) * 0.85)})));
+---
+
+{
+  site?.logo ? (
+    <img class:list={['brand-logo', `brand-size-${size}`]} src={site.logo} alt={name} height={size} decoding="async" />
+  ) : (
+    <svg class:list={['brand-dots', `brand-size-${size}`]} viewBox="0 0 32 32" aria-hidden="true">
+      {DOTS.map(d => <circle cx={d.x} cy={d.y} r={d.r} />)}
+    </svg>
+  )
+}

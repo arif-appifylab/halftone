@@ -1,0 +1,11 @@
+---
+import HalftoneShell from '../apps/halftone/HalftoneShell.astro';
+import {halftonePage} from '../apps/halftone/page';
+
+/** A Halftone page (src/apps/halftone/). Static: built once, the same for everyone. */
+export const prerender = true;
+
+const page = halftonePage('studio');
+---
+
+<HalftoneShell page={page} />

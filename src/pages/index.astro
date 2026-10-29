@@ -1,0 +1,9 @@
+---
+// The home page is Halftone's (the Halftone app, src/apps/halftone/). Static: built once.
+import HalftoneShell from '../apps/halftone/HalftoneShell.astro';
+import {halftonePage} from '../apps/halftone/page';
+
+export const prerender = true;
+---
+
+<HalftoneShell page={halftonePage('')} />

@@ -1,0 +1,22 @@
+{
+  "name": "halftone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Halftone: a studio website with case studies, a journal, a contact form and intro-call bookings, plus its admin screens in the site dashboard.",
+  "dependencies": {
+    "@tiptap/extension-image": "3.32.0",
+    "@tiptap/extensions": "3.32.0",
+    "@tiptap/pm": "3.32.0",
+    "@tiptap/react": "3.32.0",
+    "@tiptap/starter-kit": "3.32.0",
+    "clsx": "2.1.1",
+    "framer-motion": "14.5.0",
+    "lucide-react": "1.61.0",
+    "react-router-dom": "7.18.4",
+    "zod": "4.6.7"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Halftone",
+  "tagline": "Brand, product & web studio",
+  "description": "Halftone is an independent brand, product and web studio for software companies. Identity, product design and production websites — shipped in weeks, not quarters.",
+  "email": "hello@halftone.studio",
+  "locations": ["Lisbon", "New York"],
+  "availability": "Booking January 2027 · 2 slots left",
+  "timezone": "Europe/Lisbon",
+  "socials": [
+    { "label": "X / Twitter", "href": "https://x.com" },
+    { "label": "Dribbble", "href": "https://dribbble.com" },
+    { "label": "LinkedIn", "href": "https://linkedin.com" },
+    { "label": "Instagram", "href": "https://instagram.com" },
+    { "label": "Facebook", "href": "https://facebook.com" }
+  ],
+  "clients": ["Quillon", "Orbitly", "Mendwell", "Fieldnote", "Parallax", "Kinsound", "Arcwise", "Lumenstack", "Tessellate", "Driftline"],
+  "typedWords": ["brand systems", "product interfaces", "launch websites", "design systems", "motion languages"],
+  "colors": {
+    "accent": "#c8f53c",
+    "accentBright": "#d9ff66",
+    "accentDeep": "#94b81d",
+    "accentInk": "#0b0d03",
+    "glow": "#8e7cff",
+    "glowBright": "#b3a8ff",
+    "base": "#08080a"
+  }
+}

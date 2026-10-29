@@ -1,0 +1,79 @@
+/*
+ * Halftone's look for the SITE'S own pages: the sign-in pages (/account/*), any page on the
+ * website layout, and the dashboard (/dashboard). Import it AFTER the site's own CSS, in
+ * src/layouts/Base.astro and src/layouts/App.astro (see APP.md), and every token below
+ * replaces the starter's. One dark theme everywhere, like the Halftone pages.
+ */
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/apps/halftone/fonts/geist-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/apps/halftone/fonts/geist-mono-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* Every selector the site's global.css uses for its themes, so this wins in each. */
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'],
+:root:not([data-theme='light']) {
+  color-scheme: dark;
+
+  --bg: #08080a;
+  --surface: #0b0b0d;
+  --card: #0e0e11;
+  --ink: #ededef;
+  --muted: #8a8f98;
+  --subtle: #8a8f98;
+  --line: #1d1d22;
+  --line-strong: #2c2c33;
+  --hover: #151519;
+
+  --accent: #c8f53c;
+  --accent-hover: #d9ff66;
+  --accent-ink: #0b0d03;
+  --accent-soft: #1f2609;
+  --accent-text: #d9ff66;
+
+  --success: #5fd39a;
+  --success-soft: #11291e;
+  --warning: #f0b955;
+  --warning-soft: #33270f;
+  --danger: #ff6b5b;
+  --danger-hover: #ff8a7d;
+  --danger-soft: #361613;
+  --info: #b3a8ff;
+  --info-soft: #1d1a38;
+
+  --shadow-sm: 0 0 0 1px rgb(255 255 255 / 0.06), 0 2px 8px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 0 0 1px rgb(255 255 255 / 0.06), 0 2px 20px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 0 0 1px rgb(255 255 255 / 0.05), 0 30px 80px rgb(0 0 0 / 0.6);
+  --overlay: rgb(4 4 5 / 0.7);
+
+  --font-sans: Geist, Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+
+/* Halftone's mark (a 3×3 halftone dot ramp in the accent colour) and lowercase wordmark. */
+.brand-dots {
+  width: var(--brand-size, 32px);
+  height: var(--brand-size, 32px);
+  flex: none;
+}
+.brand-dots circle {
+  fill: var(--accent);
+}
+.app-brand-name,
+.brand-name,
+.footer-brand-name {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  text-transform: lowercase;
+}

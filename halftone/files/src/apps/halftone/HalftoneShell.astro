@@ -1,0 +1,45 @@
+---
+/**
+ * The HTML shell of every Halftone page (/, /work/…, /studio/, /pricing/, /journal/…,
+ * /contact/, /admin/…). The React app (site/HalftoneApp.tsx) draws the page in the browser and
+ * moves between pages without reloading. Its own full-height dark layout, not the website's
+ * header and footer. The page file passes its path and sets the status (see page.ts).
+ */
+import './halftone.css';
+
+import settings from './settings.json';
+import HalftoneApp from './site/HalftoneApp';
+import type {halftonePage} from './page';
+
+interface Props {
+  page: ReturnType<typeof halftonePage>;
+}
+
+const {page} = Astro.props;
+const canonical = page.canonical ? new URL(page.canonical, Astro.url.origin).href : null;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content={settings.colors.base} />
+    <title>{page.title}</title>
+    <meta name="description" content={page.description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {page.noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:title" content={page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:type" content="website" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/apps/halftone/favicon.svg" />
+    <link rel="preload" href="/apps/halftone/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body class="bg-base">
+    <HalftoneApp client:only="react" />
+    <noscript>
+      <p class="container-x py-24 text-muted">{settings.name} needs JavaScript to show this page.</p>
+    </noscript>
+  </body>
+</html>
